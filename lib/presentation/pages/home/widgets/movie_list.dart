@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({
@@ -28,10 +29,18 @@ class MovieList extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 20,
               itemBuilder: (context, index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    'https://picsum.photos/200/300',
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return DetailPage();
+                    }));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      'https://picsum.photos/200/300',
+                    ),
                   ),
                 );
               },
