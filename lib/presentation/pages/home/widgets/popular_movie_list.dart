@@ -17,7 +17,6 @@ class PopularMovieList extends StatelessWidget {
             '인기순',
             style: TextStyle(
               fontSize: 18,
-              color: Colors.white,
             ),
           ),
           SizedBox(height: 10),
@@ -53,7 +52,6 @@ class PopularMovieList extends StatelessWidget {
                       child: Text(
                         '${index + 1}',
                         style: TextStyle(
-                          color: Colors.white,
                           fontSize: 100,
                           fontWeight: FontWeight.bold,
                         ),

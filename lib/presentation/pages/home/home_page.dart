@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: ListView(
         children: [
           Padding(
@@ -21,7 +20,6 @@ class HomePage extends StatelessWidget {
                   '가장 인기있는',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
                   ),
                 ),
                 SizedBox(height: 10),
