@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.black, // 배경색을 어두운 색으로 설정
       ),
-      home: DetailPage(),
+      home: HomePage(),
     );
   }
 }

@@ -33,13 +33,18 @@ class MovieList extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return DetailPage();
+                      return DetailPage(
+                        tag: '${label}_movie_$index',
+                      );
                     }));
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      'https://picsum.photos/200/300',
+                    child: Hero(
+                      tag: '${label}_movie_$index',
+                      child: Image.network(
+                        'https://picsum.photos/200/300',
+                      ),
                     ),
                   ),
                 );

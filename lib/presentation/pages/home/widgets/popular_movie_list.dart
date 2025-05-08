@@ -35,13 +35,18 @@ class PopularMovieList extends StatelessWidget {
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return DetailPage();
+                            return DetailPage(
+                              tag: 'popular_movie_$index',
+                            );
                           }));
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.network(
-                            'https://picsum.photos/200/300',
+                          child: Hero(
+                            tag: 'popular_movie_$index',
+                            child: Image.network(
+                              'https://picsum.photos/200/300',
+                            ),
                           ),
                         ),
                       ),
