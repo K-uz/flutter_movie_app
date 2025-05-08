@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/presentation/pages/home/home_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  await dotenv.load();
+  runApp(
+    ProviderScope(
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
