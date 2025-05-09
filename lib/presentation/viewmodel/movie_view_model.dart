@@ -1,4 +1,4 @@
-import 'package:flutter_movie_app/data/model/movie.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 import 'package:flutter_movie_app/data/repository/movie_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/data/model/movie.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 class PopularMovieList extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
-import 'package:flutter_movie_app/data/model/movie.dart';
+import 'package:flutter_movie_app/domain/entity/movie.dart';
 import 'package:flutter_movie_app/data/service/movie_service.dart';
 
 class MovieRepository {

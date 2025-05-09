@@ -1,3 +1,14 @@
+// To parse this JSON data, do
+//
+//     final movieResponseDto = movieResponseDtoFromJson(jsonString);
+
+import 'dart:convert';
+
+MovieDto movieResponseDtoFromJson(String str) =>
+    MovieDto.fromJson(json.decode(str));
+
+String movieResponseDtoToJson(MovieDto data) => json.encode(data.toJson());
+
 class MovieDto {
   bool adult;
   String backdropPath;
@@ -8,7 +19,7 @@ class MovieDto {
   String overview;
   double popularity;
   String posterPath;
-  String releaseDate;
+  DateTime releaseDate;
   String title;
   bool video;
   double voteAverage;
@@ -31,34 +42,35 @@ class MovieDto {
     required this.voteCount,
   });
 
-  factory MovieDto.fromJson(Map<String, dynamic> map) => MovieDto(
-        adult: map["adult"],
-        backdropPath: map["backdrop_path"],
-        genreIds: List<int>.from(map["genre_ids"]),
-        id: map["id"],
-        originalLanguage: map["original_language"],
-        originalTitle: map["original_title"],
-        overview: map["overview"],
-        popularity: map["popularity"],
-        posterPath: map["poster_path"],
-        releaseDate: map["release_date"],
-        title: map["title"],
-        video: map["video"],
-        voteAverage: map["vote_average"],
-        voteCount: map["vote_count"],
+  factory MovieDto.fromJson(Map<String, dynamic> json) => MovieDto(
+        adult: json["adult"],
+        backdropPath: json["backdrop_path"],
+        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
+        id: json["id"],
+        originalLanguage: json["original_language"],
+        originalTitle: json["original_title"],
+        overview: json["overview"],
+        popularity: json["popularity"]?.toDouble(),
+        posterPath: json["poster_path"],
+        releaseDate: DateTime.parse(json["release_date"]),
+        title: json["title"],
+        video: json["video"],
+        voteAverage: json["vote_average"]?.toDouble(),
+        voteCount: json["vote_count"],
       );
 
   Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
-        "genre_ids": genreIds,
+        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
         "id": id,
         "original_language": originalLanguage,
         "original_title": originalTitle,
         "overview": overview,
         "popularity": popularity,
         "poster_path": posterPath,
-        "release_date": releaseDate,
+        "release_date":
+            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
         "title": title,
         "video": video,
         "vote_average": voteAverage,
