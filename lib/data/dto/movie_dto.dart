@@ -34,7 +34,7 @@ class MovieDto {
   factory MovieDto.fromJson(Map<String, dynamic> map) => MovieDto(
         adult: map["adult"],
         backdropPath: map["backdrop_path"],
-        genreIds: List<int>.from(map["genre_ids"].map((x) => x)),
+        genreIds: List<int>.from(map["genre_ids"]),
         id: map["id"],
         originalLanguage: map["original_language"],
         originalTitle: map["original_title"],
@@ -51,7 +51,7 @@ class MovieDto {
   Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
-        "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
+        "genre_ids": genreIds,
         "id": id,
         "original_language": originalLanguage,
         "original_title": originalTitle,

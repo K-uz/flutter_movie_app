@@ -4,7 +4,7 @@ import 'package:flutter_movie_app/data/dto/movie_dto.dart';
 
 class MovieService {
   final _dio = Dio();
-  final apiKey = dotenv.env['TDBM_API_KEY'] ?? '';
+  final apiKey = dotenv.env['TMDB_API_KEY'];
 
   Future<List<MovieDto>> fetchPopularMovies() async {
     //
@@ -20,13 +20,17 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
+      print(response.statusCode);
       if (response.statusCode == 200) {
-        return List.from(response.data).map((e) {
+        final results = response.data['results'];
+        final result = List.from(results).map((e) {
           return MovieDto.fromJson(e);
         }).toList();
+        return result;
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
@@ -45,13 +49,17 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
+      print(response.statusCode);
       if (response.statusCode == 200) {
-        return List.from(response.data).map((e) {
+        final results = response.data['results'];
+        final result = List.from(results).map((e) {
           return MovieDto.fromJson(e);
         }).toList();
+        return result;
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
@@ -70,13 +78,17 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
+      print(response.statusCode);
       if (response.statusCode == 200) {
-        return List.from(response.data).map((e) {
+        final results = response.data['results'];
+        final result = List.from(results).map((e) {
           return MovieDto.fromJson(e);
         }).toList();
+        return result;
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
@@ -95,13 +107,17 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
+      print(response.statusCode);
       if (response.statusCode == 200) {
-        return List.from(response.data).map((e) {
+        final results = response.data['results'];
+        final result = List.from(results).map((e) {
           return MovieDto.fromJson(e);
         }).toList();
+        return result;
       }
       return [];
     } catch (e) {
+      print(e);
       return [];
     }
   }
