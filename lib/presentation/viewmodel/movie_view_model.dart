@@ -2,28 +2,34 @@ import 'package:flutter_movie_app/data/model/movie.dart';
 import 'package:flutter_movie_app/data/repository/movie_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum Type {
-  popular,
-  nowPlaying,
-  topRate,
-  upcoming,
+class MovieState {
+  List<Movie> popular;
+  List<Movie> nowPlaying;
+  List<Movie> topRate;
+  List<Movie> upcoming;
+
+  MovieState({
+    required this.popular,
+    required this.nowPlaying,
+    required this.topRate,
+    required this.upcoming,
+  });
 }
 
-class MovieViewModel extends AsyncNotifier<Map<Type, List<Movie>>> {
+class MovieViewModel extends AsyncNotifier<MovieState> {
   //
   MovieRepository movieRepository = MovieRepository();
 
   @override
-  Future<Map<Type, List<Movie>>> build() async {
-    return {
-      Type.popular: await movieRepository.getPopularMovies(),
-      Type.nowPlaying: await movieRepository.getNowPlayingMovies(),
-      Type.topRate: await movieRepository.getTopRateMovies(),
-      Type.upcoming: await movieRepository.getUpcomingMovies()
-    };
+  Future<MovieState> build() async {
+    return MovieState(
+      popular: await movieRepository.getPopularMovies(),
+      nowPlaying: await movieRepository.getNowPlayingMovies(),
+      topRate: await movieRepository.getTopRateMovies(),
+      upcoming: await movieRepository.getUpcomingMovies(),
+    );
   }
 }
 
 final movieViewModelProvider =
-    AsyncNotifierProvider<MovieViewModel, Map<Type, List<Movie>>>(
-        (MovieViewModel.new));
+    AsyncNotifierProvider<MovieViewModel, MovieState>((MovieViewModel.new));
