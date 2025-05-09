@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
 
           return movieState.when(
             data: (movies) {
-              print(movies.popular[0].posterPath);
               return ListView(
                 children: [
                   Padding(
@@ -59,13 +58,13 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  MovieList(label: '현재 상영순'),
+                  MovieList(label: '현재 상영순', movies: movies.nowPlaying),
                   SizedBox(height: 20),
-                  PopularMovieList(),
+                  PopularMovieList(movies: movies.popular),
                   SizedBox(height: 20),
-                  MovieList(label: '평점 높은 순'),
+                  MovieList(label: '평점 높은 순', movies: movies.topRate),
                   SizedBox(height: 20),
-                  MovieList(label: '개봉예정'),
+                  MovieList(label: '개봉예정', movies: movies.upcoming),
                 ],
               );
             },

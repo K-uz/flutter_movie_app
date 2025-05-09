@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/data/model/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({
     super.key,
     required this.label,
+    required this.movies,
   });
 
   final String label;
+  final List<Movie> movies;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,7 +47,7 @@ class MovieList extends StatelessWidget {
                     child: Hero(
                       tag: '${label}_movie_$index',
                       child: Image.network(
-                        'https://picsum.photos/200/300',
+                        movies[index].posterPath,
                       ),
                     ),
                   ),

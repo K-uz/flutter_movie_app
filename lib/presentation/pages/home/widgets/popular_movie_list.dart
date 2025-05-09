@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/data/model/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 class PopularMovieList extends StatelessWidget {
   const PopularMovieList({
     super.key,
+    required this.movies,
   });
+
+  final List<Movie> movies;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +49,7 @@ class PopularMovieList extends StatelessWidget {
                           child: Hero(
                             tag: 'popular_movie_$index',
                             child: Image.network(
-                              'https://picsum.photos/200/300',
+                              movies[index].posterPath,
                             ),
                           ),
                         ),
