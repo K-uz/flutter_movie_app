@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
 
           return movieState.when(
             data: (movies) {
+              print(movies.popular[0].posterPath);
               return ListView(
                 children: [
                   Padding(
@@ -47,7 +48,7 @@ class HomePage extends StatelessWidget {
                               child: Hero(
                                 tag: 'favorite_movie',
                                 child: Image.network(
-                                  'https://picsum.photos/200/300',
+                                  movies.popular[0].posterPath,
                                   fit: BoxFit.cover,
                                 ),
                               ),

@@ -4,11 +4,12 @@ import 'package:flutter_movie_app/data/service/movie_service.dart';
 
 class MovieRepository {
   final movieService = MovieService();
+  final posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
   Future<List<Movie>> mapDtosToMovies(Future<List<MovieDto>> toDto) async {
     final movieDtos = await toDto;
     return movieDtos.map((e) {
-      return Movie(title: e.title, posterPath: e.posterPath);
+      return Movie(title: e.title, posterPath: posterBaseUrl + e.posterPath);
     }).toList();
   }
 
