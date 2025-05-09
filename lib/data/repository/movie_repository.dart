@@ -9,7 +9,8 @@ class MovieRepository {
   Future<List<Movie>> mapDtosToMovies(Future<List<MovieDto>> toDto) async {
     final movieDtos = await toDto;
     return movieDtos.map((e) {
-      return Movie(title: e.title, posterPath: posterBaseUrl + e.posterPath);
+      return Movie(
+          id: e.id, title: e.title, posterPath: posterBaseUrl + e.posterPath);
     }).toList();
   }
 
