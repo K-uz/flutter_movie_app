@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/box_office_info.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/category.dart';
@@ -19,7 +21,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('$id');
+    log('selectedMovieId : $id');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
@@ -20,7 +22,7 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
-      print(response.statusCode);
+      log('fetchPopularMoviesStatusCode : ${response.statusCode}');
       if (response.statusCode == 200) {
         final results = response.data['results'];
         final result = List.from(results).map((e) {
@@ -30,7 +32,7 @@ class MovieService {
       }
       return [];
     } catch (e) {
-      print(e);
+      log('$e');
       return [];
     }
   }
@@ -49,7 +51,7 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
-      print(response.statusCode);
+      log('fetchUpcomingMoviesStatusCode : ${response.statusCode}');
       if (response.statusCode == 200) {
         final results = response.data['results'];
         final result = List.from(results).map((e) {
@@ -59,7 +61,7 @@ class MovieService {
       }
       return [];
     } catch (e) {
-      print(e);
+      log('$e');
       return [];
     }
   }
@@ -78,7 +80,7 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
-      print(response.statusCode);
+      log('fetchTopRateMoviesStatueCode : ${response.statusCode}');
       if (response.statusCode == 200) {
         final results = response.data['results'];
         final result = List.from(results).map((e) {
@@ -88,7 +90,7 @@ class MovieService {
       }
       return [];
     } catch (e) {
-      print(e);
+      log('$e');
       return [];
     }
   }
@@ -107,7 +109,7 @@ class MovieService {
           'language': 'ko-KR',
         },
       );
-      print(response.statusCode);
+      log('fetchNowPlayingMoviesStatueCode : ${response.statusCode}');
       if (response.statusCode == 200) {
         final results = response.data['results'];
         final result = List.from(results).map((e) {
@@ -117,7 +119,7 @@ class MovieService {
       }
       return [];
     } catch (e) {
-      print(e);
+      log('$e');
       return [];
     }
   }
