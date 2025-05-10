@@ -7,6 +7,8 @@ class CompanyLogo extends StatelessWidget {
   });
 
   final List<String> companyLogo;
+  final posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,13 +17,15 @@ class CompanyLogo extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: companyLogo.length,
         itemBuilder: (context, index) {
-          return SizedBox(
-            width: 200,
-            child: Image.network(
-              companyLogo[index],
-              fit: BoxFit.cover,
-            ),
-          );
+          return (posterBaseUrl.length != companyLogo[index].length)
+              ? SizedBox(
+                  width: 200,
+                  child: Image.network(
+                    companyLogo[index],
+                    fit: BoxFit.fill,
+                  ),
+                )
+              : SizedBox();
         },
         separatorBuilder: (context, index) {
           return SizedBox(width: 10);

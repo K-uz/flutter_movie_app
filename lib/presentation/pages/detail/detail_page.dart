@@ -101,7 +101,6 @@ class DetailPage extends StatelessWidget {
                         CompanyLogo(
                           companyLogo: movieDetail.productionCompanyLogos,
                         ),
-                        // ux 고려(스크롤 범위)
                       ],
                     ),
                   ),
