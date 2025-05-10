@@ -24,6 +24,15 @@ class MovieDetailRepository {
       title: movieDetailDto.title,
       voteAverage: movieDetailDto.voteAverage,
       voteCount: movieDetailDto.voteCount,
+
+      // voteAverage, voteCount, popularity, budget, revenue
+      boxOfficeInfo: [
+        {'평점': movieDetailDto.voteAverage},
+        {'평점 득표수': movieDetailDto.voteCount},
+        {'인기점수': movieDetailDto.popularity},
+        {'예산': movieDetailDto.budget},
+        {'수익': movieDetailDto.revenue}
+      ],
     );
   }
 }

@@ -41,6 +41,8 @@ class PopularMovieList extends StatelessWidget {
                               MaterialPageRoute(builder: (context) {
                             return DetailPage(
                               tag: 'popular_movie_$index',
+                              id: movies[index].id,
+                              posterPath: movies[index].posterPath,
                             );
                           }));
                         },

@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CompanyLogo extends StatelessWidget {
-  const CompanyLogo({super.key});
+  const CompanyLogo({
+    super.key,
+    required this.companyLogo,
+  });
 
+  final List<String> companyLogo;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: companyLogo.length,
         itemBuilder: (context, index) {
           return SizedBox(
             width: 200,
-            child: Image.network('https://picsum.photos/200/300',
-            fit: BoxFit.cover,
+            child: Image.network(
+              companyLogo[index],
+              fit: BoxFit.cover,
             ),
           );
         },

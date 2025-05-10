@@ -39,6 +39,8 @@ class MovieList extends StatelessWidget {
                         MaterialPageRoute(builder: (context) {
                       return DetailPage(
                         tag: '${label}_movie_$index',
+                        id: movies[index].id,
+                        posterPath: movies[index].posterPath,
                       );
                     }));
                   },

@@ -37,6 +37,9 @@ class HomePage extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) {
                               return DetailPage(
                                 tag: 'favorite_movie',
+                                id: movies.popular[0].id,
+                                posterPath: movies.popular[0].posterPath,
+
                               );
                             }));
                           },
