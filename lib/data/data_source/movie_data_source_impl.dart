@@ -2,12 +2,16 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
 
-class MovieService {
-  final _dio = Dio();
-  final apiKey = dotenv.env['TMDB_API_KEY'];
+class MovieDataSourceImpl implements MovieDataSource {
+  MovieDataSourceImpl({required Dio dio}) : _dio = dio;
 
+  final Dio _dio;
+  final String _apiKey = dotenv.env['TMDB_API_KEY'] ?? '';
+
+  @override
   Future<List<MovieDto>> fetchPopularMovies() async {
     //
     try {
@@ -15,7 +19,7 @@ class MovieService {
         'https://api.themoviedb.org/3/movie/popular',
         options: Options(
           headers: {
-            'Authorization': 'Bearer $apiKey',
+            'Authorization': 'Bearer $_apiKey',
           },
         ),
         queryParameters: {
@@ -37,6 +41,7 @@ class MovieService {
     }
   }
 
+  @override
   Future<List<MovieDto>> fetchUpcomingMovies() async {
     //
     try {
@@ -44,7 +49,7 @@ class MovieService {
         'https://api.themoviedb.org/3/movie/upcoming',
         options: Options(
           headers: {
-            'Authorization': 'Bearer $apiKey',
+            'Authorization': 'Bearer $_apiKey',
           },
         ),
         queryParameters: {
@@ -66,6 +71,7 @@ class MovieService {
     }
   }
 
+  @override
   Future<List<MovieDto>> fetchTopRateMovies() async {
     //
     try {
@@ -73,7 +79,7 @@ class MovieService {
         'https://api.themoviedb.org/3/movie/top_rated',
         options: Options(
           headers: {
-            'Authorization': 'Bearer $apiKey',
+            'Authorization': 'Bearer $_apiKey',
           },
         ),
         queryParameters: {
@@ -95,6 +101,7 @@ class MovieService {
     }
   }
 
+  @override
   Future<List<MovieDto>> fetchNowPlayingMovies() async {
     //
     try {
@@ -102,7 +109,7 @@ class MovieService {
         'https://api.themoviedb.org/3/movie/now_playing',
         options: Options(
           headers: {
-            'Authorization': 'Bearer $apiKey',
+            'Authorization': 'Bearer $_apiKey',
           },
         ),
         queryParameters: {

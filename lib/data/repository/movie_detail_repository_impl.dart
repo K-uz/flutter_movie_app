@@ -1,19 +1,23 @@
-import 'package:flutter_movie_app/data/service/movie_detail_service.dart';
+import 'package:flutter_movie_app/data/data_source/movie_detail_data_source.dart';
+import 'package:flutter_movie_app/data/data_source/movie_detail_data_source_impl.dart';
 import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
+import 'package:flutter_movie_app/domain/repository/movie_detail_repository.dart';
 
-class MovieDetailRepository {
-  final movieDetailService = MovieDetailService();
-  final posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
+class MovieDetailRepositoryImpl implements MovieDetailRepository {
+  final MovieDetailDataSource _movieDetailDataSource =
+      MovieDetailDataSourceImpl();
+  final String _posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
-  Future<MovieDetail?> getMovieDetail(int id) async {
-    final movieDetailDto = await movieDetailService.fetchMovieDetail(id);
+  @override
+  Future<MovieDetail?> fetchMovieDetail(int id) async {
+    final movieDetailDto = await _movieDetailDataSource.fetchMovieDetail(id);
     if (movieDetailDto == null) return null;
     return MovieDetail(
       budget: movieDetailDto.budget,
       genres: (movieDetailDto.genres).map((e) => e.name).toList(),
       id: movieDetailDto.id,
       productionCompanyLogos: (movieDetailDto.productionCompanies)
-          .map((e) => posterBaseUrl + e.logoPath)
+          .map((e) => _posterBaseUrl + e.logoPath)
           .toList(),
       overview: movieDetailDto.overview,
       popularity: movieDetailDto.popularity,

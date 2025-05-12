@@ -1,13 +1,13 @@
-import 'package:flutter_movie_app/data/repository/movie_detail_repository.dart';
+import 'package:flutter_movie_app/data/repository/movie_detail_repository_impl.dart';
 import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieDetailViewModel extends FamilyAsyncNotifier<MovieDetail?, int> {
-  final movieDetailRepository = MovieDetailRepository();
+  final movieDetailRepository = MovieDetailRepositoryImpl();
 
   @override
-  Future<MovieDetail?> build(int arg) async {
-    return await movieDetailRepository.getMovieDetail(arg);
+  Future<MovieDetail?> build(int id) async {
+    return await movieDetailRepository.fetchMovieDetail(id);
   }
 }
 
