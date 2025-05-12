@@ -1,11 +1,13 @@
 import 'package:flutter_movie_app/data/data_source/movie_detail_data_source.dart';
-import 'package:flutter_movie_app/data/data_source/movie_detail_data_source_impl.dart';
 import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
 import 'package:flutter_movie_app/domain/repository/movie_detail_repository.dart';
 
 class MovieDetailRepositoryImpl implements MovieDetailRepository {
-  final MovieDetailDataSource _movieDetailDataSource =
-      MovieDetailDataSourceImpl();
+  MovieDetailRepositoryImpl(
+      {required MovieDetailDataSource movieDetailDataSource})
+      : _movieDetailDataSource = movieDetailDataSource;
+
+  final MovieDetailDataSource _movieDetailDataSource;
   final String _posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
   @override

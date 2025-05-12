@@ -1,5 +1,6 @@
 import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/data/repository/movie_repository_impl.dart';
+import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
+import 'package:flutter_movie_app/presentation/providers/movie_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieState {
@@ -18,15 +19,16 @@ class MovieState {
 
 class MovieViewModel extends AsyncNotifier<MovieState> {
   //
-  final movieRepository = MovieRepositoryImpl();
+  late final MovieRepository _movieRepository;
 
   @override
   Future<MovieState> build() async {
+    _movieRepository = ref.read(movieRepositoryProvider);
     return MovieState(
-      popular: await movieRepository.fetchPopularMovies(),
-      nowPlaying: await movieRepository.fetchNowPlayingMovies(),
-      topRate: await movieRepository.fetchTopRateMovies(),
-      upcoming: await movieRepository.fetchUpcomingMovies(),
+      popular: await _movieRepository.fetchPopularMovies(),
+      nowPlaying: await _movieRepository.fetchNowPlayingMovies(),
+      topRate: await _movieRepository.fetchTopRateMovies(),
+      upcoming: await _movieRepository.fetchUpcomingMovies(),
     );
   }
 }

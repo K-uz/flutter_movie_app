@@ -1,12 +1,13 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
 import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/data/data_source/movie_data_source_impl.dart';
 import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
-  final MovieDataSource _movieDataSource = MovieDataSourceImpl(dio: Dio());
+  MovieRepositoryImpl({required MovieDataSource movieDataSource})
+      : _movieDataSource = movieDataSource;
+
+  final MovieDataSource _movieDataSource;
   final String _posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
   Future<List<Movie>> mapDtosToMovies(

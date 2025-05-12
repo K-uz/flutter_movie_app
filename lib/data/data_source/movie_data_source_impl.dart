@@ -1,15 +1,16 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
-  MovieDataSourceImpl({required Dio dio}) : _dio = dio;
+  MovieDataSourceImpl({required Dio dio, required String apiKey})
+      : _dio = dio,
+        _apiKey = apiKey;
 
   final Dio _dio;
-  final String _apiKey = dotenv.env['TMDB_API_KEY'] ?? '';
+  final String _apiKey;
 
   @override
   Future<List<MovieDto>> fetchPopularMovies() async {
