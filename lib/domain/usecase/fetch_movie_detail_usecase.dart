@@ -1,14 +1,14 @@
 import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
-import 'package:flutter_movie_app/domain/repository/movie_detail_repository.dart';
+import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
 
 class FetchMovieDetailUsecase {
-  FetchMovieDetailUsecase(
-      {required MovieDetailRepository movieDetailRepository})
-      : _movieDetailRepository = movieDetailRepository;
+  FetchMovieDetailUsecase({
+    required MovieRepository movieRepository,
+  }) : _movieRepository = movieRepository;
 
-  final MovieDetailRepository _movieDetailRepository;
+  final MovieRepository _movieRepository;
 
   Future<MovieDetail?> execute(int id) async {
-    return _movieDetailRepository.fetchMovieDetail(id);
+    return _movieRepository.fetchMovieDetail(id);
   }
 }

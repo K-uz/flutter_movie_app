@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
+import 'package:flutter_movie_app/data/dto/movie_detail_dto.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
@@ -129,6 +130,31 @@ class MovieDataSourceImpl implements MovieDataSource {
     } catch (e) {
       log('$e');
       return [];
+    }
+  }
+
+  @override
+  Future<MovieDetailDto?> fetchMovieDetail(int id) async {
+    //
+    try {
+      final response = await _dio.get(
+        'https://api.themoviedb.org/3/movie/$id',
+        options: Options(
+          headers: {'Authorization': 'Bearer $_apiKey'},
+        ),
+        queryParameters: {
+          'language': 'ko-KR',
+        },
+      );
+      log('fetchMovieDetailStatusCode : ${response.statusCode}');
+      if (response.statusCode == 200) {
+        Map<String, dynamic> result = response.data;
+        return MovieDetailDto.fromJson(result);
+      }
+      return null;
+    } catch (e) {
+      log('$e');
+      return null;
     }
   }
 }
