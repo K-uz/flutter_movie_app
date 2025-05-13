@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/features/movie/data/dto/movie_detail_dto.dart';
 import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/box_office_info.dart';
 import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/category.dart';
 import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/company_logo.dart';
