@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
-import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list.dart';
-import 'package:flutter_movie_app/presentation/pages/home/widgets/popular_movie_list.dart';
-import 'package:flutter_movie_app/presentation/viewmodel/movie_view_model.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/detail/detail_page.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/home/widgets/movie_list.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/home/widgets/popular_movie_list.dart';
+import 'package:flutter_movie_app/features/movie/presentation/viewmodel/movie_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,7 +39,6 @@ class HomePage extends StatelessWidget {
                                 tag: 'favorite_movie',
                                 id: movies.popular[0].id,
                                 posterPath: movies.popular[0].posterPath,
-
                               );
                             }));
                           },

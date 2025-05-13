@@ -1,6 +1,6 @@
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
-import 'package:flutter_movie_app/domain/usecase/fetch_now_playing_movies_usecase.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie.dart';
+import 'package:flutter_movie_app/features/movie/domain/repository/movie_repository.dart';
+import 'package:flutter_movie_app/features/movie/domain/usecase/fetch_now_playing_movies_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

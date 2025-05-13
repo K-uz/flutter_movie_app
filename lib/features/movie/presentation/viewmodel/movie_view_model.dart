@@ -1,6 +1,6 @@
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
-import 'package:flutter_movie_app/presentation/providers/movie_provider.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie.dart';
+import 'package:flutter_movie_app/features/movie/domain/repository/movie_repository.dart';
+import 'package:flutter_movie_app/features/movie/presentation/providers/movie_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieState {

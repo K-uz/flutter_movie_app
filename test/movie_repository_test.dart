@@ -1,6 +1,6 @@
-import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
-import 'package:flutter_movie_app/data/dto/movie_dto.dart';
-import 'package:flutter_movie_app/data/repository/movie_repository_impl.dart';
+import 'package:flutter_movie_app/features/movie/data/data_source/movie_data_source.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_dto.dart';
+import 'package:flutter_movie_app/features/movie/data/repository/movie_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

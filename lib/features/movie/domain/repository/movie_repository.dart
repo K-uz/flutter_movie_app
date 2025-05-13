@@ -1,5 +1,5 @@
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie_detail.dart';
 
 abstract interface class MovieRepository {
   //

@@ -1,8 +1,8 @@
-import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
-import 'package:flutter_movie_app/data/dto/movie_dto.dart';
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/domain/entity/movie_detail.dart';
-import 'package:flutter_movie_app/domain/repository/movie_repository.dart';
+import 'package:flutter_movie_app/features/movie/data/data_source/movie_data_source.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_dto.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie_detail.dart';
+import 'package:flutter_movie_app/features/movie/domain/repository/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
   MovieRepositoryImpl({required MovieDataSource movieDataSource})

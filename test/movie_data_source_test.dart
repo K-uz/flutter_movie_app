@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_movie_app/data/data_source/movie_data_source_impl.dart';
+import 'package:flutter_movie_app/features/movie/data/data_source/movie_data_source_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

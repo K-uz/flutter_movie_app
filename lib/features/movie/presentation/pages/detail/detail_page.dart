@@ -1,10 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/widgets/box_office_info.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/widgets/category.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/widgets/company_logo.dart';
-import 'package:flutter_movie_app/presentation/viewmodel/movie_detail_view_model.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_detail_dto.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/box_office_info.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/category.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/detail/widgets/company_logo.dart';
+import 'package:flutter_movie_app/features/movie/presentation/viewmodel/movie_detail_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DetailPage extends StatelessWidget {
@@ -61,8 +62,9 @@ class DetailPage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                                '${movieDetail.releaseDate.toString().substring(0, 10)}'),
+                            Text(movieDetail.releaseDate
+                                .toString()
+                                .substring(0, 10)),
                           ],
                         ),
                         const SizedBox(height: 10),

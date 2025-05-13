@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/domain/entity/movie.dart';
-import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
+import 'package:flutter_movie_app/features/movie/domain/entity/movie.dart';
+import 'package:flutter_movie_app/features/movie/presentation/pages/detail/detail_page.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({

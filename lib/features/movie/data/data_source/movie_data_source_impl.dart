@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_movie_app/data/data_source/movie_data_source.dart';
-import 'package:flutter_movie_app/data/dto/movie_detail_dto.dart';
-import 'package:flutter_movie_app/data/dto/movie_dto.dart';
+import 'package:flutter_movie_app/features/movie/data/data_source/movie_data_source.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_detail_dto.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_dto.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
   MovieDataSourceImpl({required Dio dio, required String apiKey})

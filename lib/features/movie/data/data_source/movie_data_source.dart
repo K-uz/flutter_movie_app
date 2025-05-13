@@ -1,5 +1,5 @@
-import 'package:flutter_movie_app/data/dto/movie_detail_dto.dart';
-import 'package:flutter_movie_app/data/dto/movie_dto.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_detail_dto.dart';
+import 'package:flutter_movie_app/features/movie/data/dto/movie_dto.dart';
 
 abstract interface class MovieDataSource {
   Future<List<MovieDto>> fetchPopularMovies();
