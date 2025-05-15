@@ -7,4 +7,5 @@ abstract interface class MovieDataSource {
   Future<List<MovieDto>> fetchTopRateMovies();
   Future<List<MovieDto>> fetchNowPlayingMovies();
   Future<MovieDetailDto?> fetchMovieDetail(int id);
+  Future<List<MovieDto>> fetchSearchedMovie(String title);
 }

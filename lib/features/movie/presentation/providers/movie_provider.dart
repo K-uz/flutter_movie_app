@@ -15,3 +15,5 @@ final movieRepositoryProvider = Provider<MovieRepository>((ref) {
   final movieDataSource = ref.read(_movieDataSourceProvider);
   return MovieRepositoryImpl(movieDataSource: movieDataSource);
 });
+
+final searchQueryProvider = StateProvider<String>((ref) => '');

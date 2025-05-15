@@ -41,6 +41,11 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
+  Future<List<Movie>> fetchSearchedMovie(String title) async {
+    return await mapDtosToMovies(_movieDataSource.fetchSearchedMovie(title));
+  }
+
+  @override
   Future<MovieDetail?> fetchMovieDetail(int id) async {
     final movieDetailDto = await _movieDataSource.fetchMovieDetail(id);
     if (movieDetailDto == null) return null;

@@ -157,4 +157,32 @@ class MovieDataSourceImpl implements MovieDataSource {
       return null;
     }
   }
+
+  @override
+  Future<List<MovieDto>> fetchSearchedMovie(String title) async {
+    try {
+      final response = await _dio.get(
+        'https://api.themoviedb.org/3/search/movie',
+        options: Options(
+          headers: {'Authorization': 'Bearer $_apiKey'},
+        ),
+        queryParameters: {
+          'language': 'ko-KR',
+          'query': title,
+        },
+      );
+      log('fetchSearchedMovie : ${response.statusCode}');
+      if (response.statusCode == 200) {
+        final results = response.data['results'];
+        final result = List.from(results).map((e) {
+          return MovieDto.fromJson(e);
+        }).toList();
+        return result;
+      }
+      return [];
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
 }
