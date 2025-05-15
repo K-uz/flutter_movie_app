@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/features/movie/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_movie_app/features/movie/presentation/pages/home/widgets/movie_list.dart';
