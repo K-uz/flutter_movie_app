@@ -27,6 +27,11 @@ class _HomePageState extends State<HomePage> {
           title: Consumer(
             builder: (BuildContext context, WidgetRef ref, Widget? child) {
               return TextFormField(
+                decoration: InputDecoration(
+                    hintText: '찾고싶은 영화 제목을 입력하세요',
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    )),
                 controller: searchController,
                 onChanged: (value) {
                   ref.read(searchQueryProvider.notifier).state = value;
