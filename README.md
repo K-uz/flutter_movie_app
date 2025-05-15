@@ -24,7 +24,7 @@ lib/
 ## 설치 및 실행 방법
 
 ```bash
-git clone https://github.com/k-ouz/flutter_movie_app.git
+git clone https://github.com/K-uz/flutter_movie_app.git
 cd flutter_movie_app
 flutter pub get
 flutter run
