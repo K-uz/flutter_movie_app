@@ -181,7 +181,7 @@ class MovieDataSourceImpl implements MovieDataSource {
       }
       return [];
     } catch (e) {
-      print(e);
+      log('$e');
       return [];
     }
   }
